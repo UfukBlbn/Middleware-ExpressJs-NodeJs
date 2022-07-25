@@ -1,0 +1,27 @@
+{
+  "name": "npm-modules-nodejs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server",
+    "dev": "nodemon server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UfukBlbn/NPM-Modules-NodeJs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/UfukBlbn/NPM-Modules-NodeJs/issues"
+  },
+  "homepage": "https://github.com/UfukBlbn/NPM-Modules-NodeJs#readme",
+  "dependencies": {
+    "date-fns": "^2.29.1",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}
