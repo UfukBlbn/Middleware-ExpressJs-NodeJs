@@ -19,6 +19,7 @@
   "homepage": "https://github.com/UfukBlbn/NPM-Modules-NodeJs#readme",
   "dependencies": {
     "date-fns": "^2.29.1",
+    "express": "^4.18.1",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
