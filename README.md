@@ -56,11 +56,11 @@ Run the server
 ```
 
   
-## Kullanılan Teknolojiler
+## Technologies
 
-**İstemci:** Js, Html, Css
+**Client:** Js, Html, Css
 
-**Sunucu:** Node
+**Server:** Node
 
   
 ![Logo](https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Node.js_logo_2015.svg/2560px-Node.js_logo_2015.svg.png)
@@ -69,6 +69,7 @@ Run the server
 ## Project Images
 
 - Middleware Structure
+
 ![Uygulama Ekran Görüntüsü](https://media.geeksforgeeks.org/wp-content/uploads/20211007175759/MiddlewareChaining.png)
 
  
