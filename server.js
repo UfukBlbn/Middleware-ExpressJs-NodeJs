@@ -1,6 +1,7 @@
 const http = require('http');
 const path = require('path');
 const cors = require('cors');
+const corsOptions = require('./config/corsOptions')
 const {logger} = require('./middleware/logEvents')
 const errorHandler = require('./middleware/errorHandler')
 const express = require('express');
@@ -11,22 +12,8 @@ const PORT = process.env.PORT || 3500;
 //custom middleware logger
 app.use(logger);
 
-// Cross Origin Resource Sharing
-const whitelist = ['https://www.google.com.tr','http://127.0.0.1:5500','http:localhost:3500'];
-
-const corsOptions = {
-    origin:(origin,callback) => {
-        if(whitelist.indexOf(origin)!=-1 || !origin){
-            callback(null,true);
-        }else {
-            callback(new Error('Not allowed by CORS'));
-        }
-    },
-    optionSuccessStatus:200
-}
-
+//CORS Options
 app.use(cors(corsOptions));
-//
 
 //for url-encoded
 app.use(express.urlencoded({extended:false}));
@@ -35,50 +22,15 @@ app.use(express.urlencoded({extended:false}));
 app.use(express.json());
 
 //for static files
-
 app.use("/", express.static(__dirname));
 
-app.get('^/$|/index(.html)?', (req,res) => {
-    res.sendFile(path.join(__dirname,'views','index.html'))
-})
+//All routes for server
+app.use('/',require('./routes/route'))
 
- 
-app.get('/new-page(.html)?',(req,res) => {
-    res.sendFile(path.join(__dirname,'views','new-page.html'))
-})
+//route for api
+app.use('/employees',require('./routes/api/employees'));
 
-app.get('/old-page(.html)?',(req,res) => {
-    res.redirect(301,'/new-page.html')
-});
-
-//Route handlers
-app.get('/hello(.html)?', (req,res,next) => {
-    console.log('attempted to load hello.html');
-    next()
-},(req,res) => 
-{
-    res.send('Hello world!');
-}
-)
-
-
-const one = (req,res,next) => {
-    console.log('one');
-    next();
-}
-
-const two = (req,res,next) => {
-    console.log('two');
-    next();
-}
-const three = (req,res,next) => {
-    console.log('three');
-    res.send('Finished !!')
-}
-
-app.get('/chain(.html)?',[one,two,three]);
-
-
+//404
 app.all('*', (req,res) => {
     res.status(404);
     if(req.accepts('html')){
@@ -90,6 +42,7 @@ app.all('*', (req,res) => {
     }
     
 })
+
 
 //custom error Handler
 app.use(errorHandler);

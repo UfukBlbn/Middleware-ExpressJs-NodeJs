@@ -1,0 +1,29 @@
+[{
+    "id":"1",
+    "name": "Ufuk Balaban",
+    "gender": "Male",
+    "age": 23,
+    "address": {
+        "street": "87",
+        "city": "Gultari Matyal Skardu",
+        "state": "Gilgit Baltistan",
+        "postalCode": "16350"
+    },
+    "phoneNumber": [
+        { "type": "personal", "number": "116263747" }
+    ]
+},{
+    "id":"2",
+    "name": "John Doe",
+    "gender": "Male",
+    "age": 23,
+    "address": {
+        "street": "87",
+        "city": "Gultari Matyal Skardu",
+        "state": "Gilgit Baltistan",
+        "postalCode": "16350"
+    },
+    "phoneNumber": [
+        { "type": "personal", "number": "116263747" }
+    ]
+}]
