@@ -34,6 +34,7 @@ const getAllEmployees = (req,res) => {
     data.setEmployees(unsortedArray.sort((a, b) => a.id > b.id ? 1 : a.id < b.id ? -1 : 0));
     res.json(data.employees);
   }
+  
   const deleteEmployee = (req,res)=> {
     const employee = data.employees.find(emp => emp.id === parseInt(req.body.id));
     if (!employee) {

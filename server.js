@@ -29,6 +29,7 @@ app.use('/',require('./routes/route'))
 
 //route for api
 app.use('/employees',require('./routes/api/employees'));
+app.use('/register',require('./routes/register'));
 
 //404
 app.all('*', (req,res) => {
