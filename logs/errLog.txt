@@ -9,3 +9,6 @@
 20221016	15:19:40	d2f7cafd-4c46-47dc-a5ee-f5b4233c5aff	Error: Not allowed by CORS
 20221016	15:20:24	51fa9523-ab2d-4156-bf2e-a59420c5ebeb	Error: Not allowed by CORS
 20221016	15:20:24	accf9893-478d-4196-a4ab-33e632883958	Error: Not allowed by CORS
+20221029	23:32:41	648d053a-8943-49fc-892a-daf026f17c06	Error: Cannot set headers after they are sent to the client
+20221029	23:32:51	b1e9a9eb-33c1-4987-908b-ee27134902cb	Error: Cannot set headers after they are sent to the client
+20221029	23:34:12	e29aa1ef-87ba-4608-9fca-dddbc2531cc2	Error: Cannot set headers after they are sent to the client
