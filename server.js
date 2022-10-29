@@ -4,6 +4,8 @@ const cors = require('cors');
 const corsOptions = require('./config/corsOptions')
 const {logger} = require('./middleware/logEvents')
 const errorHandler = require('./middleware/errorHandler')
+const verifyJWT = require('./middleware/verifyJWT');
+const cookieParser = require('cookie-parser');
 const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 3500;
@@ -21,6 +23,9 @@ app.use(express.urlencoded({extended:false}));
 //for Json
 app.use(express.json());
 
+//middleware for cookies
+app.use(cookieParser());
+
 //for static files
 app.use("/", express.static(__dirname));
 
@@ -28,8 +33,12 @@ app.use("/", express.static(__dirname));
 app.use('/',require('./routes/route'))
 
 //route for api
-app.use('/employees',require('./routes/api/employees'));
 app.use('/register',require('./routes/register'));
+app.use('/auth',require('./routes/auth'));
+
+//verify middleware
+app.use(verifyJWT);
+app.use('/employees',require('./routes/api/employees'));
 
 //404
 app.all('*', (req,res) => {
