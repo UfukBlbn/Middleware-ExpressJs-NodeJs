@@ -38,15 +38,15 @@ const getAllBlogs = async (req,res) => {
   }
   
   const deleteBlog = async (req,res)=> {
-    if(!req?.params?.id)
+    if(!req?.body?.id)
     {
         return res.status(400).json({'message':'ID parameter is required'})
     }
 
-    const blog = await Blog.findOne({_id : req.params?.id}).exec();
+    const blog = await Blog.findOne({_id : req.body?.id}).exec();
    
     if (!blog) {
-        return res.status(204).json({ "message": `No Blog matches ID ${req.params?.id}.` });
+        return res.status(204).json({ "message": `No Blog matches ID ${req.body?.id}.` });
     }
 
     const result = await blog.deleteOne({_id : req.body.id});
@@ -55,7 +55,7 @@ const getAllBlogs = async (req,res) => {
 }
 
 const getBlogById = async (req,res)=> {
-    console.log("say");
+ 
     if(!req?.params?.id)
     {
         return res.status(400).json({'message':'ID parameter is required'})
@@ -66,7 +66,7 @@ const getBlogById = async (req,res)=> {
     if (!blog) {
         return res.status(204).json({ "message": `No Blog matches ID ${req.params.id}.` });
     }
-    console.log("say")
+ 
     res.json(blog);
 }
 
