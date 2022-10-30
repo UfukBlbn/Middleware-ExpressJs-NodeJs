@@ -50,7 +50,7 @@ app.use('/logout',require('./routes/logout'));
 
 //verify middleware
 app.use(verifyJWT);
-app.use('/blog',require('./routes/api/blog'));
+app.use('/blogs',require('./routes/api/blogs'));
 
 //404
 app.all('*', (req,res) => {
